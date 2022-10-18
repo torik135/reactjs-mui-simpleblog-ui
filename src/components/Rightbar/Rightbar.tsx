@@ -17,14 +17,18 @@ import { avatarImg, imgList, convList } from '../../constants';
 function Rightbar() {
   return (
     <Box flex={2} p={2} sx={{ display: { xs: 'none', sm: 'block' } }}>
-      <Box position='fixed' width={300}>
+      <Box position='relative' width={300}>
         <Box boxShadow={2} p={2} borderRadius={1}>
           <Typography variant='h6' fontWeight={100}>
             Online
           </Typography>
           <AvatarGroup max={5} sx={{ justifyContent: 'left' }}>
-            {avatarImg.map((i) => (
-              <Avatar src={i.imgSrc} alt={i.imgAlt} />
+            {avatarImg.map((i, idx) => (
+              <Avatar
+                src={i.imgSrc}
+                alt={i.imgAlt}
+                key={`${idx}_${Math.random()}`}
+              />
             ))}
           </AvatarGroup>
         </Box>
@@ -33,9 +37,12 @@ function Rightbar() {
             Latest Conversations
           </Typography>
           <List>
-            {convList.map((i) => (
+            {convList.map((i, idx) => (
               <>
-                <ListItem alignItems='flex-start'>
+                <ListItem
+                  alignItems='flex-start'
+                  key={`${idx}_${Math.random()}`}
+                >
                   <ListItemAvatar>
                     <Avatar />
                   </ListItemAvatar>
@@ -66,8 +73,8 @@ function Rightbar() {
             Latest Photos
           </Typography>
           <ImageList cols={3} rowHeight={100} gap={5}>
-            {imgList.map((i) => (
-              <ImageListItem key={Math.random()}>
+            {imgList.map((i, idx) => (
+              <ImageListItem key={`${idx}_${Math.random()}`}>
                 <img src={i.src} alt={i.alt} />
               </ImageListItem>
             ))}

@@ -53,7 +53,7 @@ function Navbar() {
         </Typography>
         <Yard sx={{ display: { xs: 'block', sm: 'none' } }} />
         <StyledSearch>
-          <InputBase placeholder='Search here...' />
+          <InputBase placeholder='Search here...' sx={{ color: '#000' }} />
         </StyledSearch>
         <StyledIcons>
           <Badge badgeContent={4} color='error'>

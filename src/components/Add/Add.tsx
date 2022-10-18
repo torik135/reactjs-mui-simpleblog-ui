@@ -29,6 +29,7 @@ const StyledModal = styled(Modal)({
 
 const UserBox = styled(Box)({
   display: 'flex',
+  flexDirection: 'column',
   alignItems: 'center',
   gap: '10px',
   marginBottom: '20px',
@@ -53,29 +54,33 @@ function Add() {
       </Tooltip>
       <StyledModal open={openModal} onClose={(e) => setOpenModal(false)}>
         <Box
-          width={400}
-          height={280}
+          width={500}
+          height={300}
           bgcolor={'background.default'}
           color={'text.primary'}
           p={3}
           borderRadius={1}
         >
-          <Typography variant='h6' color='gray' textAlign='center'>
+          <Typography variant='h6' color='gray' textAlign='center' mb={1}>
             Post Something...
           </Typography>
           <UserBox>
-            <Avatar />
-            <Typography variant='caption' fontWeight={500}>
-              Mark
-            </Typography>
-            <TextField
-              multiline
-              rows={4}
-              variant='standard'
-              placeholder='Dont be political!...'
-              sx={{ width: '100%' }}
-            />
-            <Stack direction='row' gap={1} mt={2} mb={1}>
+            <Stack direction='row' alignItems='top' gap={3} width={400}>
+              <Stack alignItems='center' gap={2}>
+                <Avatar />
+                <Typography variant='caption' fontWeight={500}>
+                  Mark
+                </Typography>
+              </Stack>
+              <TextField
+                multiline
+                rows={4}
+                variant='standard'
+                placeholder='Dont be political!...'
+                sx={{ width: '100%', padding: '5px' }}
+              />
+            </Stack>
+            <Stack direction='row' gap={1} mb={1}>
               <EmojiEmotions color='primary' />
               <Image color='secondary' />
               <VideoCameraBack color='success' />

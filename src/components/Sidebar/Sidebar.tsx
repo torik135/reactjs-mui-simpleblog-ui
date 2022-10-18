@@ -7,6 +7,7 @@ import {
   Storefront,
   Groups,
   ModeNight,
+  LightMode,
 } from '@mui/icons-material';
 import {
   Box,
@@ -55,7 +56,7 @@ function Sidebar(props: SidebarType) {
           <ListItem disablePadding>
             <ListItemButton component='a' href='#modenight'>
               <ListItemIcon>
-                <ModeNight />
+                {mode === 'light' ? <LightMode /> : <ModeNight />}
               </ListItemIcon>
               <Switch
                 onChange={(e) => setMode(mode === 'light' ? 'dark' : 'light')}
